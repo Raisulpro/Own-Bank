@@ -97,6 +97,10 @@
     const withdrawBtn=document.getElementById('withdrawBtn');
     withdrawBtn.addEventListener('click', function() {
       const withdrawAmount=getInputNumber("withdrawInput");
+        
+    updateSpanTax("withdrawAmount", withdrawAmount);
+    updateSpanTax("currentBalance",-1 * withdrawAmount)
+    document.getElementById("withdrawInput").value="";
     })
 
     function getInputNumber(id) {
@@ -106,7 +110,7 @@
         
     }
 
-    function updateSpanTax(id, depositNumber) {
+    function updateSpanTax(id,depositNumber) {
         var current=document.getElementById(id).innerText;
         var currentNumber=parseFloat(current);
         var totalBalance =depositNumber + currentNumber;
